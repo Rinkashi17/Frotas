@@ -40,6 +40,10 @@ export function Sidebar() {
                     Manutenções
                 </Link>
 
+                <Link href="/mileage">
+                    Quilometragem
+                </Link>
+
                 <Link href="/inspections">
                     Inspeções
                 </Link>

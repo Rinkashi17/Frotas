@@ -50,3 +50,16 @@ export type MaintenancePayload = {
     description: string;
     maintenance_date: string;
 }
+
+export interface Mileage {
+    id: number;
+    vehicle_id: number;
+    km: number;
+    recorded_at: string;
+}
+
+export type MileagePayload = {
+    vehicle_id: number;
+    km: number;
+    recorded_at: string;
+}
