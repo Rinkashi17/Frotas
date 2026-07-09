@@ -1,18 +1,20 @@
 "use client"
 
-import { Vehicle } from "@/types/dashboard";
-import { VehicleForm } from "./VehiclesForm";
+import { Maintenances } from "@/types/dashboard";
+import { MaintenanceForm } from "./MaintenancesForm";
 
 type Props = {
     open: boolean;
-    vehicle?: Vehicle;
+    vehicle_id: number;
+    maintenances: Maintenances | undefined;
     onClose: () => void;
-    onSubmit: (data: Omit<Vehicle, "id">) => void;
+    onSubmit: (data: Omit<Maintenances, "id">) => void;
 };
 
-export function VehicleModal({
+export function MaintenanceModal({
     open,
-    vehicle,
+    maintenances,
+    vehicle_id,
     onClose,
     onSubmit
 }: Props) {
@@ -23,10 +25,11 @@ export function VehicleModal({
                 <div className="fixed inset-0 bg-black/70 flex items-center justify-center">
                     <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 w-full max-w-md">
                         <h2 className="text-2xl font-bold mb-6">
-                            {vehicle ? "Editar Veículo" : "Adicionar Veículo"}
+                            {maintenances ? "Editar Manutenção" : "Adicionar Manutenção"}
                         </h2>
-                        <VehicleForm
-                            vehicle={vehicle}
+                        <MaintenanceForm
+                            vehicle_id={vehicle_id}
+                            maintenance={maintenances}
                             onSubmit={onSubmit}
                         />
                         <div className="flex justify-end mt-4">

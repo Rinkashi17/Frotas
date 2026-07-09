@@ -1,11 +1,9 @@
 import { VehiclePayload } from "@/types/dashboard";
 
-const API_URL =
+export const API_URL =
     typeof window === "undefined"
         ? process.env.INTERNAL_API_URL
         : process.env.NEXT_PUBLIC_API_URL;
-
-console.log("API_URL =", API_URL);
 
 export async function getDashboardSummary() {
     const response = await fetch(
