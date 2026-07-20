@@ -48,8 +48,8 @@ class Inspection(Base):
 
     status: Mapped[str] = mapped_column(String(50))
 
-    notes: Mapped[str] = mapped_column(
-        String(255)
+    notes: Mapped[str | None] = mapped_column(
+        String(255), nullable=True
     )
 
     vehicle = relationship("Vehicle")
