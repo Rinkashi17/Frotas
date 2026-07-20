@@ -8,7 +8,16 @@ from app.api.dashboard import router as dashboard_router
 
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+from contextlib import asynccontextmanager
+from fastapi import FastAPI
+from app.db.init_db import init_db
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db()
+    yield
+
+app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
