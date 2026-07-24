@@ -3,6 +3,7 @@ from typing import Optional
 from datetime import datetime
 
 class ServiceRuleBase(BaseModel):
+    name: str
     description: str
     interval_km: Optional[int] = None
     interval_days: Optional[int] = None
